@@ -23,7 +23,7 @@ def spell_checker(mode, rawfile, dictfile, output):
             mtx = np.zeros((1, len(raw)+1))
             for i in xrange(len(raw)+1):
                 mtx[0, i] = i
-            res, word = get_dist(1, raw, root, 100, '', mtx)
+            res, word = get_dist(mode, raw, root, 100, '', mtx)
             content = word + ' ' + str(res) + '\n'
             f.write(content)
     f.close()

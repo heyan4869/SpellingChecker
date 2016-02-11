@@ -2,7 +2,6 @@
 
 
 import timeit
-import pprint
 
 
 def spell_check(mode, rawfile, dictfile, output):
@@ -36,10 +35,11 @@ def get_file(filename, mode):
         return vocab
     if mode == 'set':
         vocab = set()
-        file = open(filename, 'r')
-        for line in file:
+        f = open(filename, 'r')
+        for line in f:
             vocab.add(line.strip())
         return vocab
+
 
 def get_dist(mode, word1, word2):
     dp_mtx = [[0 for x in range(len(word2)+1)] for x in range(len(word1)+1)]
@@ -58,7 +58,6 @@ def get_dist(mode, word1, word2):
                 else:
                     edit_list = [dp_mtx[i-1][j-1], dp_mtx[i-1][j], dp_mtx[i][j-1]]
                     dp_mtx[i][j] = min(edit_list) + 1
-    pprint.pprint(dp_mtx)
     return dp_mtx[len(word1)][len(word2)]
 
 

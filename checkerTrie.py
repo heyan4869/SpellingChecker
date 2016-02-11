@@ -59,8 +59,8 @@ def get_file(filename, mode):
     print 'Reading', filename
     if mode == 'list':
         vocab = []
-        file = open(filename, 'r')
-        for line in file:
+        f = open(filename, 'r')
+        for line in f:
             vocab.append(line.strip())
         return vocab
     if mode == 'set':

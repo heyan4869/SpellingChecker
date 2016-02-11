@@ -63,8 +63,7 @@ def get_dist(mode, word1, word2):
 
 
 if __name__ == "__main__":
-    # start = timeit.default_timer()
-    # spell_check(2, 'raw.txt', 'dictionary.txt', 'output2.txt')
-    # end = timeit.default_timer()
-    # print end - start
-    get_dist(1, 'aeroflot', 'orhoflow')
+    start = timeit.default_timer()
+    spell_check(2, 'raw.txt', 'dictionary.txt', 'output2.txt')
+    end = timeit.default_timer()
+    print end - start

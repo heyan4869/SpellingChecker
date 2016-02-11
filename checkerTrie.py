@@ -44,14 +44,14 @@ def get_dist(mode, raw, node, res, word, mtx):
             else:
                 edit_dist = [add_mtx[row_num-2, i-1], add_mtx[row_num-2, i], add_mtx[row_num-1, i-1]]
                 add_mtx[row_num-1, i] = min(edit_dist) + 1
-        if value.end == True:
+        if value.end:
             if res > add_mtx[row_num-1, len(raw)]:
                 res = add_mtx[row_num-1, len(raw)]
                 word = value.word
             if len(value.children) != 0:
-                res, word = get_dist(mode, raw, value, res, word, add_mtx)
+                res, word = get_dist(mode, raw, value, res, word, add_mtx[row_num-1: row_num])
         else:
-            res, word = get_dist(mode, raw, value, res, word, add_mtx)
+            res, word = get_dist(mode, raw, value, res, word, add_mtx[row_num-1: row_num])
     return res, word
 
 

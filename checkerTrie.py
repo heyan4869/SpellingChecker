@@ -30,6 +30,8 @@ def spell_checker(mode, rawfile, dictfile, output):
 
 
 def get_dist(mode, raw, node, res, word, mtx):
+    if res == 1:
+        return res, word
     children_dict = node.children
     for key, value in children_dict.iteritems():
         add_row = [0] * (len(raw)+1)
@@ -70,6 +72,6 @@ def get_file(filename, mode):
 
 if __name__ == '__main__':
     start = timeit.default_timer()
-    spell_checker(1, 'raw.txt', 'dictionary.txt', 'output3.txt')
+    spell_checker(1, 'raw.txt', 'dictionary.txt', 'output4.txt')
     end = timeit.default_timer()
     print end - start
